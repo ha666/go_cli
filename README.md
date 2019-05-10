@@ -76,7 +76,37 @@ SET FOREIGN_KEY_CHECKS = 1;
 ```
 
 #### 配置文件
-config.yaml
+config.yaml 格式：
+```yaml
+proj:
+  name: "ha666-server"
+  package_prefix: "gitee.com/ha666/"
+  interface_type: "rpcx"    #接口类型：rpcx、gin、go-micro
+  server_port: 12985
+db:
+  name: "ha666db"
+  address: "127.0.0.1"
+  port: 3306
+  account: "root"
+  password: "1234567890"
+  conn_name: "ha666db"
+  max_execution_time: 5000
+  tables:
+    - name: "user"
+      wheres:
+        - field: "likeRealName"
+          format: "IsHanOrLetterOrNumber"
+        - field: "jobNumber"
+          format: "IsLetterOrNumber1"
+        - field: "jobPosition"
+          format: "IsHanOrLetterOrNumber"
+        - field: "userType"
+          format: "IsNumber"
+          required: true
+        - field: "startCreateTime"
+        - field: "endCreateTime"
+
+```
 
 #### 执行
 ```go
