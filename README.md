@@ -109,9 +109,8 @@ db:
 ```
 
 #### 执行
-```go
-go run main.go
-```
+- **windows**: go_cli.exe
+- **mac**: ./go_cli
 
 #### 手动复制
 ```go
