@@ -81,6 +81,7 @@ config.yaml 格式：
 proj:
   name: "ha666-server"
   package_prefix: "gitee.com/ha666/"
+  micro_package: "com.ha666.srv.abcd"
   interface_type: "rpcx"    #接口类型：rpcx、gin、go-micro
   server_port: 12985
 db:
