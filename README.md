@@ -143,3 +143,56 @@ IsUtf8                  |                                                       
 ```go
 根据gopath的规则把codes目录里的内容复制到自己的项目中
 ```
+#### rpcx目录结构
+```
+|   config.yaml
+|   main.go
+|
++---controller
+|   |   server.go
+|   |
+|   +---proj
+|   |       base.go
+|   |       getProjInfo.go
+|   |       getProjList.go
+|   |
+|   \---user
+|           base.go
+|           getUserInfo.go
+|           getUserList.go
+|
++---dao
+|       column.go
+|       db.go
+|       generalPaging.go
+|       proj.go
+|       table.go
+|       user.go
+|
++---doc
+|       doc.json
+|
++---initials
+|   |   app.go
+|   |   id.go
+|   |   init.go
+|   |   log.go
+|   |
+|   \---config
+|           model.go
+|           parser.go
+|
++---model
+|       column.go
+|       proj.go
+|       selectSQLStruct.go
+|       table.go
+|       user.go
+|
+\---service
+        base.go
+        generalPaging.go
+        proj.go
+        user.go
+```
+
