@@ -107,6 +107,32 @@ db:
         - field: "endCreateTime"
 
 ```
+##### field
+
+- like+字段名，表示这个字段模糊查询
+- start+字段名，表示字段的开始时间
+- end+字段名，表示字段的结束时间
+
+##### format
+值                |正则表达式                            |备注
+------------------------|--------------------------------------------------------------|---------------------------
+IsTaobaoNick            |(^[\\u4e00-\\u9fa5\\w_—\\-，。…·〔〕（）！@￥%……&*？、；‘“]*$)    | 是否淘宝用户名
+IsSubTaobaoNick         |(^[\\u4e00-\\u9fa5\\w_—\\-，。…·〔〕（）！@￥%……&*？、；‘“:]*$)   | 是否淘宝用户名（子帐号）
+IsVersion               |(^[0-9.]*$)                                                   | 是否版本号
+IsUrl                   |(^[a-zA-z]+://[^\s]*$)                                        | 是否网址
+IsNumber                |(^[0-9]*$)                                                    | 是否数字
+IsMultipNumber          |(^[0-9,]*$)                                                   | 是否多数字(用逗号间隔)
+IsLetterOrNumber        |(^[A-Za-z0-9_]*$)                                             | 判断是否由字母、数字、下划线组成
+IsLetterOrNumber1       |(^[A-Za-z0-9_-]*$)                                            | 判断是否由字母、数字、下划线、中杠组成
+IsHanOrLetterOrNumber   |^[A-Za-z0-9_\u4e00-\u9fa5-]*$                                 | 是否由汉字、字母、数字、下划线组成
+IsGeneralString         |^[A-Za-z0-9_\\-#+./:\u4e00-\u9fa5]*$                          | 是否由汉字、字母、数字、下划线、中杠等组成
+IsStandardTime          |                                                              | 是否标准时间格式
+IsIPAddress             |                                                              | 是否IPv4地址
+IsIntranetIP            |                                                              | 是否内网IP地址
+IsEmail                 |^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$ | 是否email
+IsMobile                |                                                              | 是否手机号
+IsAllChineseChar        |                                                              | 字符串是否全中文字符
+IsUtf8                  |                                                              | 是否utf-8编码字符串
 
 #### 执行
 - **windows**: go_cli.exe
