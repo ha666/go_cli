@@ -79,11 +79,15 @@ SET FOREIGN_KEY_CHECKS = 1;
 config.yaml 格式：
 ```yaml
 proj:
-  name: "ha666-server"
-  package_prefix: "gitee.com/ha666/"
-  micro_package: "com.ha666.srv.abcd"
-  interface_type: "rpcx"    #接口类型：rpcx、gin、go-micro
+  package: "gitee.com/ha666/ha666-server"
   server_port: 12985
+  interface_type: "rpcx"    #接口类型：rpcx、gin、go-micro
+  rpcx:
+    request_path: "gitee.com/ha666/ha666-common"
+  gin:
+  go_micro:
+    micro_package: "com.ha666.ha666-server.srv.rbac"
+    proto_path: "gitee.com/ha666/ha666-proto"
 db:
   name: "ha666db"
   address: "127.0.0.1"
@@ -145,54 +149,93 @@ IsUtf8                  |                                                       
 ```
 #### rpcx目录结构
 ```
-|   config.yaml
-|   main.go
-|
-+---controller
-|   |   server.go
-|   |
-|   +---proj
-|   |       base.go
-|   |       getProjInfo.go
-|   |       getProjList.go
-|   |
-|   \---user
-|           base.go
-|           getUserInfo.go
-|           getUserList.go
-|
-+---dao
-|       column.go
-|       db.go
-|       generalPaging.go
-|       proj.go
-|       table.go
-|       user.go
-|
-+---doc
-|       doc.json
-|
-+---initials
-|   |   app.go
-|   |   id.go
-|   |   init.go
-|   |   log.go
-|   |
-|   \---config
-|           model.go
-|           parser.go
-|
-+---model
-|       column.go
-|       proj.go
-|       selectSQLStruct.go
-|       table.go
-|       user.go
-|
-\---service
-        base.go
-        generalPaging.go
-        proj.go
-        user.go
+.
+└── gitee.com
+    └── ha666
+        ├── ha666-common
+        │   ├── model
+        │   │   ├── column.go
+        │   │   ├── dept.go
+        │   │   ├── deptUser.go
+        │   │   ├── role.go
+        │   │   ├── selectSQLStruct.go
+        │   │   ├── table.go
+        │   │   ├── user.go
+        │   │   └── userRole.go
+        │   ├── request
+        │   │   ├── getDeptInfo.go
+        │   │   ├── getDeptList.go
+        │   │   ├── getDeptUserInfo.go
+        │   │   ├── getDeptUserList.go
+        │   │   ├── getRoleInfo.go
+        │   │   ├── getRoleList.go
+        │   │   ├── getUserInfo.go
+        │   │   ├── getUserList.go
+        │   │   ├── getUserRoleInfo.go
+        │   │   └── getUserRoleList.go
+        │   └── response
+        │       ├── getDeptInfo.go
+        │       ├── getDeptList.go
+        │       ├── getDeptUserInfo.go
+        │       ├── getDeptUserList.go
+        │       ├── getRoleInfo.go
+        │       ├── getRoleList.go
+        │       ├── getUserInfo.go
+        │       ├── getUserList.go
+        │       ├── getUserRoleInfo.go
+        │       └── getUserRoleList.go
+        └── ha666-server
+            ├── config.yaml
+            ├── controller
+            │   ├── dept
+            │   │   ├── base.go
+            │   │   ├── getDeptInfo.go
+            │   │   └── getDeptList.go
+            │   ├── deptUser
+            │   │   ├── base.go
+            │   │   ├── getDeptUserInfo.go
+            │   │   └── getDeptUserList.go
+            │   ├── role
+            │   │   ├── base.go
+            │   │   ├── getRoleInfo.go
+            │   │   └── getRoleList.go
+            │   ├── server.go
+            │   ├── user
+            │   │   ├── base.go
+            │   │   ├── getUserInfo.go
+            │   │   └── getUserList.go
+            │   └── userRole
+            │       ├── base.go
+            │       ├── getUserRoleInfo.go
+            │       └── getUserRoleList.go
+            ├── dao
+            │   ├── column.go
+            │   ├── db.go
+            │   ├── dept.go
+            │   ├── deptUser.go
+            │   ├── generalPaging.go
+            │   ├── role.go
+            │   ├── table.go
+            │   ├── user.go
+            │   └── userRole.go
+            ├── doc
+            │   └── doc.json
+            ├── initials
+            │   ├── app.go
+            │   ├── config
+            │   │   ├── model.go
+            │   │   └── parser.go
+            │   ├── id.go
+            │   ├── init.go
+            │   └── log.go
+            ├── main.go
+            └── service
+                ├── base.go
+                ├── dept.go
+                ├── deptUser.go
+                ├── generalPaging.go
+                ├── role.go
+                ├── user.go
+                └── userRole.go
 ```
 
