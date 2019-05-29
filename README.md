@@ -239,5 +239,5 @@ IsUtf8                  |                                                       
                 └── userRole.go
 ```
 #### 第三方包下载地址
-- 微云链接：[https://share.weiyun.com/5gHMdKN](https://share.weiyun.com/5gHMdKN "微云链接")
-- 百度云链接：[https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw　　　提取码：tamp](https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw "微云链接")
+- 微云链接：[https://share.weiyun.com/5gHMdKN](https://share.weiyun.com/5gHMdKN?_blank)
+- 百度云链接：[https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw　提取码：tamp](https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw?_blank)
