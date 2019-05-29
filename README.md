@@ -29,6 +29,22 @@ create database ha666db default character set utf8mb4 collate utf8mb4_general_ci
 
 #### 创建表、字段、索引
 ```sql
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 127.0.0.1
+ Source Server Type    : MySQL
+ Source Server Version : 80016
+ Source Host           : 127.0.0.1:3306
+ Source Schema         : ha666db
+
+ Target Server Type    : MySQL
+ Target Server Version : 80016
+ File Encoding         : 65001
+
+ Date: 29/05/2019 16:25:08
+*/
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -38,17 +54,18 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `proj`;
 CREATE TABLE `proj` (
   `projId` int(11) NOT NULL AUTO_INCREMENT COMMENT '项目编号',
-  `userId` int(11) NOT NULL COMMENT '用户编号',
+  `projName` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目名称',
+  `userCode` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户编码',
   `deleteStatus` tinyint(4) NOT NULL COMMENT '是否删除',
-  PRIMARY KEY (`projId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='项目表';
+  PRIMARY KEY (`projId`),
+  KEY `idx_proj_projName` (`projName`) USING BTREE COMMENT '根据项目名称查询列表'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='项目表';
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userId` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户编号，主键，自增',
   `userCode` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '用户编码，取自钉钉编码',
   `realName` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '姓名',
   `jobNumber` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '员工的工号',
@@ -60,17 +77,10 @@ CREATE TABLE `user` (
   `deleteStatus` tinyint(4) NOT NULL DEFAULT '0' COMMENT '删除状态，0未知，1未删除，2删除',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`userId`),
+  PRIMARY KEY (`userCode`) USING BTREE,
   UNIQUE KEY `uk_user_userCode` (`userCode`) USING BTREE COMMENT '根据用户编码查询唯一用户信息',
   KEY `idx_user_realName` (`realName`) USING BTREE COMMENT '根据姓名查询多条记录'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户信息表';
-
--- ----------------------------
--- Records of user
--- ----------------------------
-BEGIN;
-INSERT INTO `user` VALUES (1, 'ha666', 'ha666HA666', 'T-000000', '暂无', '2019-04-30 12:37:23', '', 0, 1, 1, '2019-04-30 12:37:23', '2019-04-30 12:37:23');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户信息表';
 
 SET FOREIGN_KEY_CHECKS = 1;
 ```
