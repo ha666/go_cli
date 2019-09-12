@@ -4,7 +4,7 @@
 代码生成器，可以生成rpcx、gin、go-micro接口的完整解决方案。
 
 #### 示例项目
-[gin_demo](https://github.com/ha666/gin_demo){:target="_blank"}
+[gin_demo](https://github.com/ha666/gin_demo?_blank)
 
 #### 规则(坑)
 1. 所有的表、字段、索引都必须要写注释
@@ -168,5 +168,5 @@ IsUtf8                  |                                                       
 ```
 
 #### 第三方包下载地址
-- 微云链接：[https://share.weiyun.com/5gHMdKN](https://share.weiyun.com/5gHMdKN){:target="_blank"}
-- 百度云链接：[https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw　提取码：tamp](https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw){:target="_blank"}
+- 微云链接：[https://share.weiyun.com/5gHMdKN](https://share.weiyun.com/5gHMdKN?_blank)
+- 百度云链接：[https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw　提取码：tamp](https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw?_blank)
