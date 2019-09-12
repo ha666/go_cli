@@ -160,7 +160,7 @@ IsUtf8                  |                                                       
 
 #### 执行
 - **windows**: go_cli.exe
-- **mac**: ./go_cli
+- **linux**: ./go_cli
 
 #### 手动复制
 ```go
