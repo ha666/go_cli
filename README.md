@@ -89,12 +89,13 @@ SET FOREIGN_KEY_CHECKS = 1;
 config.yaml 格式：
 ```yaml
 proj:
-  package: "gitee.com/ha666/ha666-server"
-  server_port: 12985
-  interface_type: "rpcx"    #接口类型：rpcx、gin、go-micro
+  package: "github.com/ha666/gin_demo"
+  server_port: 9090
+  interface_type: "gin"    #接口类型：rpcx、gin、go-micro
   rpcx:
     request_path: "gitee.com/ha666/ha666-common"
   gin:
+    is_general_paging: false
   go_micro:
     micro_package: "com.ha666.ha666-server.srv.rbac"
     proto_path: "gitee.com/ha666/ha666-proto"
@@ -120,7 +121,12 @@ db:
           required: true
         - field: "startCreateTime"
         - field: "endCreateTime"
-
+    - name: "proj"
+        wheres:
+          - field: "userId"
+  white_tables:
+    - name: "proj"
+    - name: "user"
 ```
 ##### field
 
@@ -157,97 +163,7 @@ IsUtf8                  |                                                       
 ```go
 根据gopath的规则把codes目录里的内容复制到自己的项目中
 ```
-#### rpcx目录结构
-```
-.
-└── gitee.com
-    └── ha666
-        ├── ha666-common
-        │   ├── model
-        │   │   ├── column.go
-        │   │   ├── dept.go
-        │   │   ├── deptUser.go
-        │   │   ├── role.go
-        │   │   ├── selectSQLStruct.go
-        │   │   ├── table.go
-        │   │   ├── user.go
-        │   │   └── userRole.go
-        │   ├── request
-        │   │   ├── getDeptInfo.go
-        │   │   ├── getDeptList.go
-        │   │   ├── getDeptUserInfo.go
-        │   │   ├── getDeptUserList.go
-        │   │   ├── getRoleInfo.go
-        │   │   ├── getRoleList.go
-        │   │   ├── getUserInfo.go
-        │   │   ├── getUserList.go
-        │   │   ├── getUserRoleInfo.go
-        │   │   └── getUserRoleList.go
-        │   └── response
-        │       ├── getDeptInfo.go
-        │       ├── getDeptList.go
-        │       ├── getDeptUserInfo.go
-        │       ├── getDeptUserList.go
-        │       ├── getRoleInfo.go
-        │       ├── getRoleList.go
-        │       ├── getUserInfo.go
-        │       ├── getUserList.go
-        │       ├── getUserRoleInfo.go
-        │       └── getUserRoleList.go
-        └── ha666-server
-            ├── config.yaml
-            ├── controller
-            │   ├── dept
-            │   │   ├── base.go
-            │   │   ├── getDeptInfo.go
-            │   │   └── getDeptList.go
-            │   ├── deptUser
-            │   │   ├── base.go
-            │   │   ├── getDeptUserInfo.go
-            │   │   └── getDeptUserList.go
-            │   ├── role
-            │   │   ├── base.go
-            │   │   ├── getRoleInfo.go
-            │   │   └── getRoleList.go
-            │   ├── server.go
-            │   ├── user
-            │   │   ├── base.go
-            │   │   ├── getUserInfo.go
-            │   │   └── getUserList.go
-            │   └── userRole
-            │       ├── base.go
-            │       ├── getUserRoleInfo.go
-            │       └── getUserRoleList.go
-            ├── dao
-            │   ├── column.go
-            │   ├── db.go
-            │   ├── dept.go
-            │   ├── deptUser.go
-            │   ├── generalPaging.go
-            │   ├── role.go
-            │   ├── table.go
-            │   ├── user.go
-            │   └── userRole.go
-            ├── doc
-            │   └── doc.json
-            ├── initials
-            │   ├── app.go
-            │   ├── config
-            │   │   ├── model.go
-            │   │   └── parser.go
-            │   ├── id.go
-            │   ├── init.go
-            │   └── log.go
-            ├── main.go
-            └── service
-                ├── base.go
-                ├── dept.go
-                ├── deptUser.go
-                ├── generalPaging.go
-                ├── role.go
-                ├── user.go
-                └── userRole.go
-```
+
 #### 第三方包下载地址
 - 微云链接：[https://share.weiyun.com/5gHMdKN](https://share.weiyun.com/5gHMdKN?_blank)
 - 百度云链接：[https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw　提取码：tamp](https://pan.baidu.com/s/1QbNnWUDWQF3a2abd7f42Xw?_blank)
